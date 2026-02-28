@@ -1,6 +1,8 @@
 package PengNiGame;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class PengNiGame {
@@ -16,11 +18,10 @@ public class PengNiGame {
             int choice2 = choices.get(random.nextInt(choices.size()));
             int choice3 = choices.get(random.nextInt(choices.size()));
 
-            ArrayList<Integer> gamer1 = createSequence(choice1, choice2, choice3);
-            ArrayList<Integer> gamer2 = createSequence(1-choice2, choice1, choice2);
-
+            List<Integer> gamer1 = Arrays.asList(choice1, choice2, choice3);
+            List<Integer> gamer2 = Arrays.asList(1-choice2, choice1, choice2);
             // 开始抛硬币
-            ArrayList<Integer> game = new ArrayList<>();
+            List<Integer> game = new ArrayList<>();
             for (int i = 0; i < 3; i++) game.add(choices.get(random.nextInt(choices.size())));
             while (true){
                 if (game.equals(gamer1)){
@@ -38,9 +39,4 @@ public class PengNiGame {
         System.out.printf("玩家2胜利次数：%d ", secondwin);
     }
 
-    private static ArrayList<Integer> createSequence(int... choices){
-        ArrayList<Integer> sequence = new ArrayList<>(3);
-        for (int choice : choices) sequence.add(choice);
-        return sequence;
-    }
 }
