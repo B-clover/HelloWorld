@@ -1,6 +1,6 @@
 package HelloWorld;
 
-public class Test {
+public class Test implements Runnable{ // 使用Runnable实现多线程，需实现run函数
     // static修饰的属性和方法不属于任何一个对象，属于类【所有对象共享的】，直接可以进行调用 like：System.out.println(Test.id)
     //
     private Integer id;
@@ -33,5 +33,10 @@ public class Test {
                 "id=" + this.id +
                 ", name='" + this.name + '\'' +
                 '}';
+    }
+
+    @Override
+    public void run() {
+
     }
 }
